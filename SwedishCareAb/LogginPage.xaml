@@ -1,0 +1,45 @@
+﻿<Page
+    x:Class="SwedishCareAb.LogginPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:SwedishCareAb"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.Column="1" Grid.Row="1" Margin="0,48,0,83">
+            <TextBox
+              
+                     PlaceholderText="personnummer" 
+                     Height="44" 
+                     Margin="0,150,0,0" 
+                     Width="376" />
+            <Button
+                
+                        Content="Logga in"
+                        Background="#1cb3bc"
+             
+                        
+                        Foreground="White"
+                        HorizontalAlignment="Center" 
+                        Width="145" 
+                        Height="35"
+                        Margin="0,50,0,0" />
+        </StackPanel>
+        <TextBlock Grid.Column="1" FontSize="70" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="366" Text="Välkommen" Grid.Row="1" Margin="0,96,0,0"/>
+
+    </Grid>
+</Page>
