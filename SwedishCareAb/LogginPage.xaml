@@ -20,18 +20,20 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel BorderBrush="Black" BorderThickness="2" Grid.RowSpan="4" Grid.Column="1" Margin="0,191,0,190">
+        <StackPanel BorderBrush="Gray" CornerRadius="5" BorderThickness="2" Grid.RowSpan="4" Grid.Column="1" Margin="0,191,0,190">
             <TextBox
               
                      PlaceholderText="personnummer" 
                      Height="44" 
+                CornerRadius="5"
                      Margin="0,150,0,0" 
                      Width="376" />
+            
             <Button
                 
                         Content="Logga in"
                         Background="#1cb3bc"
-             Style="{StaticResource RoundButtontamplate}"
+                        CornerRadius="5"
                         Click="Button_Click"
                         Foreground="White"
                         HorizontalAlignment="Center" 

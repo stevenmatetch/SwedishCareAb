@@ -15,14 +15,15 @@
             <ColumnDefinition Width="49*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="72*"/>
-            <RowDefinition Height="339*"/>
-            <RowDefinition Height="89*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="140*"/>
+            <RowDefinition Height="667*"/>
+            <RowDefinition Height="178*"/>
 
         </Grid.RowDefinitions>
 
-        <Grid x:Name="HeaderTextGrid" Width="658" Height="111" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="411,29,0,0">
-            <TextBlock  x:Name="HeaderTextListTextBlock" FontWeight="Medium" Text="Bokningar" FontSize="50" Margin="158,2,244,-2"/>
+        <Grid x:Name="HeaderTextGrid" BorderBrush="Gray" CornerRadius="5" BorderThickness="2" Width="390" Height="87" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,16,0,0" Grid.Row="1">
+            <TextBlock  x:Name="HeaderTextListTextBlock" FontWeight="Medium" Text="Bokningar" FontSize="50" Margin="71,0,62,13"/>
 
         </Grid>
 
@@ -32,8 +33,7 @@
 
 
 
-
-        <Grid x:Name="SideGrid"   Width="336" Height="602" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="21,28,0,0" Grid.Row="1" Grid.Column="1">
+        <Grid x:Name="SideGrid"   Width="336" Height="602" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="21,28,0,0" Grid.Row="2" Grid.Column="1">
             <Grid.RowDefinitions>
 
 
@@ -43,25 +43,25 @@
             <StackPanel HorizontalAlignment="Right">
 
 
-                <TextBlock FontSize="30"  Text="{x:Bind selectedBooking.company.Name}"></TextBlock >
+                <TextBlock FontSize="30"  Text="{x:Bind _selectedBooking.company.Name, Mode=TwoWay}"></TextBlock >
                 <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind selectedBooking.company.Address}"></TextBlock>
+                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.Address, Mode=TwoWay}"></TextBlock>
                 <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind selectedBooking.company.PhoneNumber}"></TextBlock>
+                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.PhoneNumber, Mode=TwoWay}"></TextBlock>
                 <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind selectedBooking.company.Mail}"></TextBlock>
+                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.Mail , Mode=TwoWay}"></TextBlock>
                 <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind selectedBooking.company.OpeningHours}"></TextBlock>
+                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.OpeningHours, Mode=TwoWay}"></TextBlock>
                 <TextBlock FontSize="10"  Text=""></TextBlock >
 
 
-                <Image Width="200" Source="{x:Bind selectedBooking.company.Picture }"></Image>
+                <Image Width="200" Source="{x:Bind _selectedBooking.company.Picture,, Mode=TwoWay }"></Image>
             </StackPanel>
 
 
         </Grid>
-        <Grid Margin="63,28,64,104" BorderBrush="Black" BorderThickness="2" Grid.Row="1"  >
-            <ListView x:Name="BookingListView" SelectionChanged="BookingListView_SelectionChanged"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="6,6,62,2">
+        <Grid Margin="63,28,64,101" CornerRadius="5" BorderBrush="Gray" BorderThickness="2" Grid.Row="2"  >
+            <ListView x:Name="BookingListView" SelectionChanged="BookingListView_SelectionChanged"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="8,9,10,3">
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:Booking" >
 
@@ -80,19 +80,19 @@
                 </ListView.ItemTemplate>
             </ListView>
         </Grid>
-        <Grid Grid.Row="2" BorderBrush="Black" BorderThickness="2" Margin="63,0,64,58">
+        <Grid Grid.Row="3" BorderBrush="Gray" CornerRadius="5" BorderThickness="2" Margin="63,2,64,58">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="68*"/>
                 <ColumnDefinition Width="83*"/>
                 <ColumnDefinition Width="76*"/>
                 <ColumnDefinition Width="92*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Book_Copy" Content="Registrera" FontSize="25" Style="{StaticResource RoundButtontamplate}"  Background="Green" Height="70" Width="165" Click="Registrera_Click" Margin="28,0,0,0" />
-            <Button x:Name="Cancel_Copy" Content="" FontSize="25" Style="{StaticResource RoundButtontamplate}"  Background="Green" Height="70" Width="165" Grid.Column="1" Margin="50,0,0,0" />
-            <Button x:Name="Book_Copy1" Content="Logga ut" FontSize="25" Style="{StaticResource RoundButtontamplate}"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" />
-            <Button x:Name="Book_Copy2" Content="Tillbaka" FontSize="25" Style="{StaticResource RoundButtontamplate}"  Background="#1cb3bc" Height="70" Width="165" Click ="GoBackButton_Click" Grid.Column="3" HorizontalAlignment="Center" />
+            <Button x:Name="Book_Copy" Foreground="White" Content="Registrera" FontSize="25" CornerRadius="5"  Background="Green" Height="70" Width="165" Click="Registrera_Click" Margin="28,0,0,0" />
+            <Button x:Name="Cancel_Copy" Content="" FontSize="25" CornerRadius="5"  Background="Green" Height="70" Width="165" Grid.Column="1" Margin="50,0,0,0" />
+            <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" />
+            <Button x:Name="Book_Copy2" Content="Tillbaka" Foreground="White" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Click ="GoBackButton_Click" Grid.Column="3" HorizontalAlignment="Center" />
         </Grid>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="97,53,0,0" Text="Info" TextWrapping="Wrap" VerticalAlignment="Top" Height="66" Width="102" FontSize="50"  FontWeight="Medium"/>
+        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="97,0,0,0" Text="Info" TextWrapping="Wrap" VerticalAlignment="Center" Height="66" Width="102" FontSize="50"  FontWeight="Medium" Grid.Row="1"/>
 
 
 

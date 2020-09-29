@@ -2,6 +2,7 @@
 using SwedishCareAb.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
@@ -22,13 +23,30 @@ namespace SwedishCareAb
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
         private BookingViewModel bookingViewModel;
 
-        private Booking selectedBooking { get; set; }
+        public Booking _selectedBooking { get; set; }
 
-       // private CompanyViewModel companyViewModel;
+        Booking SelectedBooking
+        {
+            get
+            {
+                return  _selectedBooking;
+            }
+            set
+            {
+                _selectedBooking = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedBooking"));
+            }
+
+
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        // private CompanyViewModel companyViewModel;
         public MainPage()
         {
             this.InitializeComponent();
@@ -59,7 +77,7 @@ namespace SwedishCareAb
 
         private void BookingListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            selectedBooking = BookingListView.SelectedValue as Booking;
+          _selectedBooking = BookingListView.SelectedValue as Booking;
         }
     }
 }

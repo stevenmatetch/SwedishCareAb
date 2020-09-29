@@ -10,10 +10,10 @@ namespace SwedishCareAb.Models
     {
        public int ID { get; set; }
        public string PersonalIdentityNumber { get; set; }
-        public int Name { get; set; }
+       public int Name { get; set; }
        public int FirstName  { get; set; }
 
-        public string PhoneNumber { get; set; }
+       public string PhoneNumber { get; set; }
 
 
 

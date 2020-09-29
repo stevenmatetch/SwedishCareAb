@@ -15,20 +15,13 @@ namespace SwedishCareAb.Models
         public string Description { get; set; }
         public string Status { get; set; }
         public Company company { get; set; }
-
+        public string Picture { get; set; }
 
 
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private void NotifyPropertyChanged(string caller = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
-            }
-
-        }
+       
         public Booking(int id, DateTime date, string description, string status)
         {
             ID = id;
@@ -37,8 +30,15 @@ namespace SwedishCareAb.Models
             Status = status;
             company = new Company("Fålktandvården Skåne", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
         }
-    
-    
+        private void NotifyPropertyChanged(string caller = "")
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(caller));
+            }
+
+        }
+
         public string Statuss
         {
             get { return Status; }

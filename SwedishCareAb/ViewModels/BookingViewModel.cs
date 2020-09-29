@@ -28,7 +28,7 @@ namespace SwedishCareAb.ViewModels
             {
                 if (bookings[i].Statuss.Equals(booking.Statuss))
                 {
-                    bookings[i].Statuss ="Ankomstregistrerad";
+                    bookings[i].Statuss = "Ankomstregistrerad";
                 }
             }
                
