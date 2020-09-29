@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace SwedishCareAb.Models
 {
-   public class Person
+   public class User
     {
        public int ID { get; set; }
        public string PersonalIdentityNumber { get; set; }
-        public int Namn { get; set; }
+        public int Name { get; set; }
        public int FirstName  { get; set; }
 
         public string PhoneNumber { get; set; }

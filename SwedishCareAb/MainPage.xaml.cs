@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SwedishCareAb.Models;
+using SwedishCareAb.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,9 +24,42 @@ namespace SwedishCareAb
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private BookingViewModel bookingViewModel;
+
+        private Booking selectedBooking { get; set; }
+
+       // private CompanyViewModel companyViewModel;
         public MainPage()
         {
             this.InitializeComponent();
+            bookingViewModel = new BookingViewModel();
+            //companyViewModel = new CompanyViewModel();
+        }
+
+        private void GoBackButton_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LogginPage));
+
+        }
+
+        
+
+       
+      
+        private void Registrera_Click(object sender, RoutedEventArgs e)
+        {
+            var selected = BookingListView.SelectedItems;
+
+            foreach (Booking booking in selected)
+            {
+                bookingViewModel.ChangeStatus(booking);
+
+            }
+        }
+
+        private void BookingListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            selectedBooking = BookingListView.SelectedValue as Booking;
         }
     }
 }

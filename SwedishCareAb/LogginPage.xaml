@@ -20,7 +20,7 @@
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-        <StackPanel BorderBrush="Black" BorderThickness="2" Grid.RowSpan="3" Grid.Column="1" Grid.Row="1" Margin="0,48,0,83">
+        <StackPanel BorderBrush="Black" BorderThickness="2" Grid.RowSpan="4" Grid.Column="1" Margin="0,191,0,190">
             <TextBox
               
                      PlaceholderText="personnummer" 
@@ -31,15 +31,15 @@
                 
                         Content="Logga in"
                         Background="#1cb3bc"
-             
-                        
+             Style="{StaticResource RoundButtontamplate}"
+                        Click="Button_Click"
                         Foreground="White"
                         HorizontalAlignment="Center" 
                         Width="145" 
                         Height="35"
                         Margin="0,50,0,0" />
         </StackPanel>
-        <TextBlock Grid.Column="1" FontSize="70" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Center" Width="366" Text="Välkommen" Grid.Row="1" Margin="0,96,0,0"/>
+        <TextBlock  Grid.Column="1" FontSize="65" TextWrapping="Wrap" VerticalAlignment="Top"  HorizontalAlignment="Center" Width="366" FontWeight="Medium" Text="Välkommen" Margin="0,210,0,0" Grid.RowSpan="2" />
 
     </Grid>
 </Page>
