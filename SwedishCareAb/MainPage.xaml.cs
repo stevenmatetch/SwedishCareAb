@@ -27,20 +27,51 @@ namespace SwedishCareAb
     {
         private BookingViewModel bookingViewModel;
 
-        public Booking _selectedBooking { get; set; }
 
-        Booking SelectedBooking
+        //private Booking _selectedBooking { get; set; }
+
+        //public Booking SelectedBooking
+        //{
+        //    get
+        //    {
+        //        return  _selectedBooking;
+        //    }
+        //    set
+        //    {
+        //        _selectedBooking = value;
+        //        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedBooking"));
+        //    }
+
+
+        //}
+        private Booking BOOKING { get; set; }
+
+        public Booking Bookingg
         {
             get
             {
-                return  _selectedBooking;
+                return BOOKING;
             }
             set
             {
-                _selectedBooking = value;
-                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedBooking"));
+                BOOKING = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("Bookingg"));
             }
 
+
+        }
+        public void GetBooking(Booking booking)
+        {
+            /*for (int i = 0; i < bookingViewModel.bookings.Count; i++)
+            {
+                if (bookingViewModel.bookings[i].Statuss.Equals(booking.Statuss))
+                {
+                    //bookingViewModel.bookings[i].Statuss = "Ankomstregistrerad";
+                    sstatus = "Ankomstregistrerad";
+                }
+            }*/
+
+            Bookingg = booking;
 
         }
 
@@ -66,6 +97,9 @@ namespace SwedishCareAb
       
         private void Registrera_Click(object sender, RoutedEventArgs e)
         {
+
+            
+
             var selected = BookingListView.SelectedItems;
 
             foreach (Booking booking in selected)
@@ -73,11 +107,35 @@ namespace SwedishCareAb
                 bookingViewModel.ChangeStatus(booking);
 
             }
+
+            //BookingListView.Items = bookingViewModel;
+
+        }
+
+        private void BookingListView_ItemClick(object sender, ItemClickEventArgs e)
+        {
+            //var select = BookingListView.SelectedItems;
+            //foreach (Booking Booking in select)
+            //{
+
+            //    bookingViewModel.ChangeStatus(Booking);
+
+            //}
         }
 
         private void BookingListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          _selectedBooking = BookingListView.SelectedValue as Booking;
+            var select = BookingListView.SelectedItem;
+            if (select != null)
+            {
+                GetBooking(select as Booking);
+            }
+
+        }
+        public  void GetPicture()
+        {
+            //RoomsGridGrid.ItemsSource = await apiServices.GetAllRoomsAsync();
+            
         }
     }
 }

@@ -13,22 +13,122 @@ namespace SwedishCareAb.Models
         public int ID { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
-        public string Status { get; set; }
-        public Company company { get; set; }
-        public string Picture { get; set; }
 
+        private int _status { get; set; }
+        public int Status
+        {
+            get { return _status; }
+            set
+            {
+                _status = value;
+                NotifyPropertyChanged("Status");
+                NotifyPropertyChanged("Status");
+                //NotifyPropertyChanged("Picture");
+
+            }
+        }
+        public int Statuss
+        {
+            get { return Status; }
+            set
+            {
+                Status = value;
+                NotifyPropertyChanged("Statuss");
+            }
+        }
+        public string GetStatusText
+        {
+
+            get
+            {
+
+
+
+                switch (Status)
+                {
+                    case 10:
+                        return "Bokad";
+                    case 20:
+                        return "Ankomstregistrerad";
+                    default:
+                        return "Okänd status";
+                }
+
+            }
+
+        }
+
+        public string _picture { get; set; }
+
+
+        public string Picture
+        {
+
+            get { return _picture; }
+            set
+            {
+                _picture = value;
+                NotifyPropertyChanged("Picture");
+                NotifyPropertyChanged("Picture");
+
+            }
+        }
+        //public string Picturee
+        //{
+        //    get { return Picture; }
+        //    set
+        //    {
+        //        Picture = value;
+        //        NotifyPropertyChanged("Picturee");
+        //    }
+        //}
+
+
+
+
+
+
+        public Company company { get; set; }
+
+
+      
+        public string GetBoked
+        {
+            get
+            {
+                if (Status == 10)
+                {
+                    Picture = "";
+                }
+                
+                else 
+                {
+                    Picture = "Assets/ckeck.png";
+                }
+
+                return "";
+                
+            }
+            
+
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
 
        
-        public Booking(int id, DateTime date, string description, string status)
+        public Booking(int id, DateTime date, string description, int status, string picture, Company comp)
         {
             ID = id;
             Description = description;
             Date = date;
             Status = status;
-            company = new Company("Fålktandvården Skåne", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
+            Picture = picture;
+
+
+
+
+            company = comp;// new Company("Fålktandvården Skåne ", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
         }
         private void NotifyPropertyChanged(string caller = "")
         {
@@ -39,38 +139,14 @@ namespace SwedishCareAb.Models
 
         }
 
-        public string Statuss
-        {
-            get { return Status; }
-            set
-            {
-                Status = value;
-                NotifyPropertyChanged("Statuss");
-            }
-        }
-        //public string Descriptionn
-        //{
-        //    get { return Description; }
-        //    set
-        //    {
-        //        Description = value;
-        //        NotifyPropertyChanged("Descriptionn");
-        //    }
-        //}
-        //public DateTime Datee
-        //{
-        //    get { return Date; }
-        //    set
-        //    {
-        //        Date = value;
-        //        NotifyPropertyChanged("Datee");
-        //    }
-        //}
+       
+       
+
 
         public string summary
 
         {
-            get { return + ID + "    " + Date  + "    " + Description + "    " + Statuss; }
+            get { return Date + "    " + Description + "    " ; }
         }
     }
 }

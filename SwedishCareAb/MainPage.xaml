@@ -34,46 +34,54 @@
 
 
         <Grid x:Name="SideGrid"   Width="336" Height="602" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="21,28,0,0" Grid.Row="2" Grid.Column="1">
-            <Grid.RowDefinitions>
 
 
-                <RowDefinition Height="0*"/>
-            </Grid.RowDefinitions>
-
-            <StackPanel HorizontalAlignment="Right">
 
 
-                <TextBlock FontSize="30"  Text="{x:Bind _selectedBooking.company.Name, Mode=TwoWay}"></TextBlock >
-                <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.Address, Mode=TwoWay}"></TextBlock>
-                <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.PhoneNumber, Mode=TwoWay}"></TextBlock>
-                <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.Mail , Mode=TwoWay}"></TextBlock>
-                <TextBlock FontSize="10"  Text=""></TextBlock >
-                <TextBlock FontSize="20" Text="{x:Bind _selectedBooking.company.OpeningHours, Mode=TwoWay}"></TextBlock>
-                <TextBlock FontSize="10"  Text=""></TextBlock >
 
 
-                <Image Width="200" Source="{x:Bind _selectedBooking.company.Picture,, Mode=TwoWay }"></Image>
+
+
+
+
+            <StackPanel HorizontalAlignment="Left" Margin="4,0,0,0" RenderTransformOrigin="0.5,0.5" Width="332">
+                <StackPanel.RenderTransform>
+                    <CompositeTransform ScaleX="1"/>
+                </StackPanel.RenderTransform>
+
+                <!--<TextBlock FontSize="30" Text="{x:Bind Bookingg.summary,Mode=OneWay}" TextWrapping="Wrap" Height="524" ></TextBlock >-->
+
+                <TextBlock FontSize="30"  Text="{x:Bind Bookingg.company.Name,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.Address,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.Mail,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.PhoneNumber,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.OpeningHours,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+
+                <Image Width="200" Source="{x:Bind Bookingg.company.Picture,Mode=OneWay }"></Image>
             </StackPanel>
 
 
         </Grid>
         <Grid Margin="63,28,64,101" CornerRadius="5" BorderBrush="Gray" BorderThickness="2" Grid.Row="2"  >
-            <ListView x:Name="BookingListView" SelectionChanged="BookingListView_SelectionChanged"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="8,9,10,3">
+            <ListView x:Name="BookingListView" ItemClick="BookingListView_ItemClick" IsItemClickEnabled="True" SelectedValue="{Binding SelectedBooking, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValuePath="" ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="8,9,10,3" SelectionChanged="BookingListView_SelectionChanged" >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:Booking" >
 
-                        <StackPanel Orientation="Vertical" HorizontalAlignment="Left">
-                            <TextBlock x:Name="Date" Text ="{x:Bind Date }"   FontSize="18" Foreground="Black"/>
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                            <!--<TextBlock x:Name="Date" Text ="{x:Bind Date }"   FontSize="18" Foreground="Black"/>
 
                             <TextBlock x:Name="Description" Text ="{x:Bind Description}"   FontSize="18" Foreground="Black"/>
-                            <TextBlock x:Name="Space" Text =""   FontSize="10" Foreground="Black"/>
-                            <TextBlock x:Name="Status" Text ="{x:Bind Statuss, Mode=TwoWay}"   FontSize="18" Foreground="Black"/>
-                            <TextBlock x:Name="Spac" Text =""   FontSize="10" Foreground="Black"/>
+                
+                            <TextBlock x:Name="Status" Text ="{x:Bind GetStatusText}"   FontSize="18" Foreground="Black"/>
+                            <Image Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>-->
 
-
+                            <TextBlock x:Name="Date" Text ="{x:Bind summary, Mode=OneWay}"   FontSize="18" Foreground="Black"/>
+                            <TextBlock  Text ="{x:Bind GetStatusText , Mode=OneWay}"   FontSize="18" Foreground="Black"/>
+                            <Image x:Name="picture" Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>
                         </StackPanel>
 
                     </DataTemplate>
@@ -92,8 +100,7 @@
             <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" />
             <Button x:Name="Book_Copy2" Content="Tillbaka" Foreground="White" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Click ="GoBackButton_Click" Grid.Column="3" HorizontalAlignment="Center" />
         </Grid>
-        <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="97,0,0,0" Text="Info" TextWrapping="Wrap" VerticalAlignment="Center" Height="66" Width="102" FontSize="50"  FontWeight="Medium" Grid.Row="1"/>
-
+       
 
 
 
