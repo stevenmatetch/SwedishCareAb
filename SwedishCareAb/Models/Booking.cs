@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml;
 
 namespace SwedishCareAb.Models
 {
@@ -25,8 +26,9 @@ namespace SwedishCareAb.Models
                 _status = value;
                 NotifyPropertyChanged("Status");
                 NotifyPropertyChanged("GetStatusText");
+                NotifyPropertyChanged("ShowPicture");
 
-                
+
 
             }
         }
@@ -59,7 +61,13 @@ namespace SwedishCareAb.Models
             }
 
         }
-
+        public Visibility ShowPicture
+        {
+            get
+            {
+                if (Status > 10) return Visibility.Visible; else return Visibility.Collapsed;
+            }
+        }
         public string _picture { get; set; }
 
 

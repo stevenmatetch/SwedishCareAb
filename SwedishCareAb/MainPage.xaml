@@ -81,7 +81,7 @@
 
                             <TextBlock x:Name="BookingDate" Text ="{x:Bind summary, Mode=OneWay}"   FontSize="18" Foreground="Black"/>
                             <TextBlock x:Name="BookingDescription"  Text ="{x:Bind GetStatusText , Mode=OneWay}"   FontSize="18" Foreground="Black"/>
-                            <Image x:Name="BookingPicture" Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>
+                            <Image x:Name="BookingPicture" Width="20" Source="{x:Bind Picture, Mode=OneWay }" Visibility="{x:Bind ShowPicture, Mode=OneWay}"></Image>
                         </StackPanel>
                        
                     </DataTemplate>
