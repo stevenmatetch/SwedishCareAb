@@ -105,6 +105,8 @@ namespace SwedishCareAb
             foreach (Booking booking in selected)
             {
                 bookingViewModel.ChangeStatus(booking);
+                bookingViewModel.ChangePicture(booking);
+
 
             }
 
@@ -130,12 +132,17 @@ namespace SwedishCareAb
             {
                 GetBooking(select as Booking);
             }
+            
 
         }
         public  void GetPicture()
         {
-            //RoomsGridGrid.ItemsSource = await apiServices.GetAllRoomsAsync();
+
+            //BookingPiicture.Visibility = Visibility.Collapsed;
             
+            
+
+
         }
     }
 }

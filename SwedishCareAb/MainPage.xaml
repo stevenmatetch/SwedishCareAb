@@ -23,7 +23,7 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="HeaderTextGrid" BorderBrush="Gray" CornerRadius="5" BorderThickness="2" Width="390" Height="87" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,16,0,0" Grid.Row="1">
-            <TextBlock  x:Name="HeaderTextListTextBlock" FontWeight="Medium" Text="Bokningar" FontSize="50" Margin="71,0,62,13"/>
+            <TextBlock   FontWeight="Medium" Text="Bokningar" FontSize="50" Margin="71,0,62,13"/>
 
         </Grid>
 
@@ -79,11 +79,11 @@
                             <TextBlock x:Name="Status" Text ="{x:Bind GetStatusText}"   FontSize="18" Foreground="Black"/>
                             <Image Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>-->
 
-                            <TextBlock x:Name="Date" Text ="{x:Bind summary, Mode=OneWay}"   FontSize="18" Foreground="Black"/>
-                            <TextBlock  Text ="{x:Bind GetStatusText , Mode=OneWay}"   FontSize="18" Foreground="Black"/>
-                            <Image x:Name="picture" Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>
+                            <TextBlock x:Name="BookingDate" Text ="{x:Bind summary, Mode=OneWay}"   FontSize="18" Foreground="Black"/>
+                            <TextBlock x:Name="BookingDescription"  Text ="{x:Bind GetStatusText , Mode=OneWay}"   FontSize="18" Foreground="Black"/>
+                            <Image x:Name="BookingPicture" Width="20" Source="{x:Bind Picture, Mode=OneWay }"></Image>
                         </StackPanel>
-
+                       
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
@@ -100,9 +100,8 @@
             <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" />
             <Button x:Name="Book_Copy2" Content="Tillbaka" Foreground="White" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Click ="GoBackButton_Click" Grid.Column="3" HorizontalAlignment="Center" />
         </Grid>
-       
 
-
+        
 
     </Grid>
 </Page>

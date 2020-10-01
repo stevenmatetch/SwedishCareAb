@@ -24,15 +24,19 @@ namespace SwedishCareAb.ViewModels
         }
         internal void ChangeStatus( Booking booking)
         {
-            for (int i = 0; i < bookings.Count; i++)
-            {
-                if (bookings[i].Statuss.Equals(booking.Statuss))
-                {
-                    bookings[i].Statuss = 20;
-                }
-            }
+          
+
+            booking.Statuss = 20;
           
         }
+        internal void ChangePicture(Booking booking)
+        {
+
+
+            booking.Picture = "Assets/ckeck.png";
+
+        }
+
 
 
 
