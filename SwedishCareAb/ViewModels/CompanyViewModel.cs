@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SwedishCareAb.ViewModels
 {
-    class CompanyViewModel
+ public   class CompanyViewModel
     {
         public List<Company> companies { get; set; } 
         public CompanyViewModel()

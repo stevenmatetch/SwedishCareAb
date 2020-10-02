@@ -22,7 +22,9 @@
         </Grid.ColumnDefinitions>
         <StackPanel BorderBrush="Gray" CornerRadius="5" BorderThickness="2" Grid.RowSpan="4" Grid.Column="1" Margin="0,191,0,190">
             <TextBox
-              
+                      x:Name="PersonalIdentityNumberTextBlock"
+                      Text="{x:Bind loginViewModel.UserPersonalIdentityNumber , Mode=TwoWay}"
+                
                      PlaceholderText="personnummer" 
                      Height="44" 
                 CornerRadius="5"

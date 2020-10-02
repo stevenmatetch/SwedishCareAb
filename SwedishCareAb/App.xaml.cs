@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SwedishCareAb.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,14 @@ namespace SwedishCareAb
         /// Initializes the singleton application object.  This is the first line of authored code
         /// executed, and as such is the logical equivalent of main() or WinMain().
         /// </summary>
+        ///  static User _loggedInPerson;
+        ///  
+        static User _loggedInPerson;
+        public static User LoggedInUser
+        {
+            get { return _loggedInPerson; }
+            set { _loggedInPerson = value; }
+        }
         public App()
         {
             this.InitializeComponent();

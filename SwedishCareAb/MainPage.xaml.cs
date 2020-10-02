@@ -26,6 +26,7 @@ namespace SwedishCareAb
     public sealed partial class MainPage : Page, INotifyPropertyChanged
     {
         private BookingViewModel bookingViewModel;
+        private LoginViewModel loginViewModel;
 
 
         //private Booking _selectedBooking { get; set; }
@@ -82,6 +83,7 @@ namespace SwedishCareAb
         {
             this.InitializeComponent();
             bookingViewModel = new BookingViewModel();
+            loginViewModel = new LoginViewModel();
             //companyViewModel = new CompanyViewModel();
         }
 
@@ -135,14 +137,6 @@ namespace SwedishCareAb
             
 
         }
-        public  void GetPicture()
-        {
-
-            //BookingPiicture.Visibility = Visibility.Collapsed;
-            
-            
-
-
-        }
+   
     }
 }
