@@ -24,10 +24,12 @@ namespace SwedishCareAb
     public sealed partial class LogginPage : Page
     {
         public LoginViewModel loginViewModel { get; set; }
+        public MainPageViewModel mainPageViewModel { get; set; }
         public LogginPage()
         {
             this.InitializeComponent();
             loginViewModel = new LoginViewModel();
+            mainPageViewModel = new MainPageViewModel();
         }
 
       

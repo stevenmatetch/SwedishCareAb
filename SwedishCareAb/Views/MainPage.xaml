@@ -50,6 +50,7 @@
             </StackPanel>
 
 
+
         </Grid>
         <Grid Margin="63,28,64,101" CornerRadius="5" BorderBrush="Gray" BorderThickness="2" Grid.Row="2"  >
             <ListView x:Name="BookingListView" ItemClick="BookingListView_ItemClick" IsItemClickEnabled="True" SelectedValue="{Binding SelectedBooking, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="8,9,10,3" SelectionChanged="BookingListView_SelectionChanged" >
@@ -66,7 +67,8 @@
 
                             <TextBlock x:Name="BookingDate" Text ="{x:Bind summary, Mode=OneWay}"  FontWeight="SemiBold" FontSize="18" Foreground="Black"/>
                             <TextBlock x:Name="BookingDescription"   Text ="{x:Bind GetStatusText , Mode=OneWay}"   FontWeight="SemiBold"   FontSize="18" Foreground="Black"/>
-                            <Image x:Name="BookingPicture"  Width="20" Source="{x:Bind Picture, Mode=OneWay }" Visibility="{x:Bind ShowPicture, Mode=OneWay}"></Image>
+
+                            <Image x:Name="BookingPicture"  Width="20" Source ="/Assets/ckeck.png" Visibility="{x:Bind ShowPicture, Mode=OneWay}"></Image>
                         </StackPanel>
 
                     </DataTemplate>
@@ -84,19 +86,24 @@
             <Button x:Name="Cancel_Copy" Content="" FontSize="25" CornerRadius="5"  Background="Green" Height="70" Width="165" Grid.Column="1" Margin="50,0,0,0" />
             <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  FontWeight="Bold"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" Click="Logout_Click"/>
         </Grid>
-        <ListView x:Name="SignedInPersonListView" ItemsSource="{x:Bind user.PersonalIdentityNumber}" Grid.Column="1" Margin="189,15,0,0" Grid.RowSpan="2">
-       
-        <ListView.ItemTemplate>
-            <DataTemplate x:DataType="data:User">
-                    <StackPanel>
+        <Grid Grid.Column="1" Grid.Row="1" Margin="144,0,0,0">
+            <StackPanel Margin="-124,21,124,21">
 
-                        <TextBlock x:Name="SignedInPersonsNameTextBlock" Text="{x:Bind PersonalIdentityNumber}" FontSize="20"/>
-                        <TextBlock x:Name="SignedInPersonIdentityNumberTextBlock" Text="{x:Bind Name}" FontSize="20"/>
 
-                    </StackPanel>
-               
-                </DataTemplate>
-        </ListView.ItemTemplate>
-            </ListView>
+                <TextBlock Text="{x:Bind user.PersonalIdentityNumber }" FontWeight="SemiBold" FontSize="18" Margin="5,3,0,0"></TextBlock>
+                <TextBlock Text="{x:Bind user.Name}" FontSize="18" Margin="5,3,0,0"  FontWeight="SemiBold"></TextBlock>
+            </StackPanel>
+
+
+
+
+
+
+
+
+        </Grid>
+        <Image Grid.Column="1" HorizontalAlignment="Left" Height="108" Source="/Assets/login.png" Margin="287,0,0,0" Grid.Row="1" VerticalAlignment="Center" Width="95"/>
+
+
     </Grid>
 </Page>

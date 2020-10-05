@@ -28,7 +28,9 @@ namespace SwedishCareAb
     {
         private BookingViewModel bookingViewModel;
         private LoginViewModel loginViewModel;
-        private User user;
+        public User user { get; set; }
+        public MainPageViewModel mainPageViewModel { get; set; }
+      
 
         //private Booking _selectedBooking { get; set; }
 
@@ -62,6 +64,8 @@ namespace SwedishCareAb
 
 
         }
+
+
         public void GetBooking(Booking booking)
         {
             /*for (int i = 0; i < bookingViewModel.bookings.Count; i++)
@@ -85,15 +89,13 @@ namespace SwedishCareAb
             this.InitializeComponent();
             bookingViewModel = new BookingViewModel();
             loginViewModel = new LoginViewModel();
-            //user = _user;
+            mainPageViewModel = new MainPageViewModel();
+            user = App.LoggedInUser;
+            
             //companyViewModel = new CompanyViewModel();
         }
 
        
-        
-
-       
-      
         private void Registrera_Click(object sender, RoutedEventArgs e)
         {
 
@@ -104,7 +106,7 @@ namespace SwedishCareAb
             foreach (Booking booking in selected)
             {
                 bookingViewModel.ChangeStatus(booking);
-                bookingViewModel.ChangePicture(booking);
+              
 
 
             }

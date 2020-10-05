@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using Windows.UI.Xaml.Documents;
 
 namespace SwedishCareAb.ViewModels
 {
@@ -32,18 +33,36 @@ namespace SwedishCareAb.ViewModels
         }
        internal void Login()
        {
-       
+
+            List<User> users = new List<User>();
+            users.Add(new User(1, "123", "Steven Komi Matetcho"));
+            users.Add(new User(2, "1234", "Daniel Fridhed"));
+            users.Add(new User(3, "567", "Peter 'Drutten' Svensson"));
 
             if (!string.IsNullOrEmpty(UserPersonalIdentityNumber))
             {
-                User user = new User(1, "123", "Steven Komi Matetcho");
+                //    User user = new User(1, "123", "Steven Komi Matetcho");
 
-                if (user.PersonalIdentityNumber == UserPersonalIdentityNumber)
+                //User user = users.FirstOrDefault(x => x.PersonalIdentityNumber == UserPersonalIdentityNumber);
+
+
+                User user = null;
+                foreach (var u in users)
+                {
+                    if (u.PersonalIdentityNumber == UserPersonalIdentityNumber)
+                    {
+                        user = u;
+                        break;
+                    }
+                }
+
+                if (user!=null)
                 {
 
                     var nav = ServiceLocator.Current.GetInstance<INavigationService>();
+                    App.LoggedInUser = user;
 
-                    nav.NavigateTo(App.MainPage, user);
+                    nav.NavigateTo(App.MainPage);
 
                 }
                 else 
