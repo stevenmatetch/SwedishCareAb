@@ -85,7 +85,7 @@ namespace SwedishCareAb
             this.InitializeComponent();
             bookingViewModel = new BookingViewModel();
             loginViewModel = new LoginViewModel();
-            user = new User();
+            //user = _user;
             //companyViewModel = new CompanyViewModel();
         }
 

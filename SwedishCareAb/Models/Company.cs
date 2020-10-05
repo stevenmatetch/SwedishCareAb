@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SwedishCareAb.Models
 {
-  public   class Company : INotifyPropertyChanged
+  public   class Company 
     {
         public int ID { get; set; }
         public string Name { get; set; }
@@ -19,16 +19,7 @@ namespace SwedishCareAb.Models
         public string OpeningHours { get; set; }
         public string Picture { get; set; }
 
-        public event PropertyChangedEventHandler PropertyChanged;
-        private void NotifyPropertyChanged(string caller = "")
-        {
-            if (PropertyChanged != null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(caller));
-            }
-
-        }
-
+   
         public Company(string name, string address, string phoneNumber, string mail, string openingHours, string picture)
         {
             Name = name;

@@ -32,17 +32,18 @@ namespace SwedishCareAb.ViewModels
         }
        internal void Login()
        {
-            User user = new User(1, "123", "Steven Komi Matetcho");
+       
 
             if (!string.IsNullOrEmpty(UserPersonalIdentityNumber))
             {
-               
+                User user = new User(1, "123", "Steven Komi Matetcho");
 
-                if (user.PersonalIdentityNumber == "123")
+                if (user.PersonalIdentityNumber == UserPersonalIdentityNumber)
                 {
 
                     var nav = ServiceLocator.Current.GetInstance<INavigationService>();
-                    nav.NavigateTo(App.MainPage);
+
+                    nav.NavigateTo(App.MainPage, user);
 
                 }
                 else 
@@ -56,7 +57,7 @@ namespace SwedishCareAb.ViewModels
 
 
             }
-                //var user = userViewModel.GetUser(userUserPersonalIdentityNumber)
+                
              
         }
     }

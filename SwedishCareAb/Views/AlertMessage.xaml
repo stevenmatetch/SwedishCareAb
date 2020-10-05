@@ -7,12 +7,13 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Title=""
+    
     CornerRadius="5"
-    SecondaryButtonText="försök igen"
+    SecondaryButtonText="försök igen"  
   
     SecondaryButtonClick="ContentDialog_SecondaryButtonClick">
 
     <Grid>
-        <TextBlock x:Name="ConfirmMessage2" Text="Fel personnummer!" FontSize="20" TextAlignment="Center" VerticalAlignment="Top"/>
+        <TextBlock x:Name="ConfirmMessage2"  FontWeight="SemiBold"  Text="Fel personnummer!" FontSize="20" TextAlignment="Center" VerticalAlignment="Top"/>
     </Grid>
 </ContentDialog>
