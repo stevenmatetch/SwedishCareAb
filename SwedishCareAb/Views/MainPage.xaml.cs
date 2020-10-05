@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.ApplicationModel.Core;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.UI.Xaml;
@@ -27,7 +28,7 @@ namespace SwedishCareAb
     {
         private BookingViewModel bookingViewModel;
         private LoginViewModel loginViewModel;
-
+        private User user;
 
         //private Booking _selectedBooking { get; set; }
 
@@ -84,15 +85,11 @@ namespace SwedishCareAb
             this.InitializeComponent();
             bookingViewModel = new BookingViewModel();
             loginViewModel = new LoginViewModel();
+            user = new User();
             //companyViewModel = new CompanyViewModel();
         }
 
-        private void GoBackButton_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(LogginPage));
-
-        }
-
+       
         
 
        
@@ -137,6 +134,12 @@ namespace SwedishCareAb
             
 
         }
-   
+
+       
+
+        private void Logout_Click(object sender, RoutedEventArgs e)
+        {
+            this.Frame.Navigate(typeof(LogginPage));
+        }
     }
 }

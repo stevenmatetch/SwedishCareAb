@@ -30,14 +30,6 @@ namespace SwedishCareAb
             loginViewModel = new LoginViewModel();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Frame.Navigate(typeof(MainPage));
-
-            //var dialog = new ContentDialog1();
-            //var result = dialog.ShowAsync();
-
-
-        }
+      
     }
 }

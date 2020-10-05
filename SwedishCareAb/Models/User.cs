@@ -25,11 +25,11 @@ namespace SwedishCareAb.Models
 
 
         }
-        //public User()
-        //{
+        public User()
+        {
 
-        //}
-      
+        }
+
 
 
 

@@ -36,17 +36,17 @@
 
                 <!--<TextBlock FontSize="30" Text="{x:Bind Bookingg.summary,Mode=OneWay}" TextWrapping="Wrap" Height="524" ></TextBlock >-->
 
-                <TextBlock FontSize="30"  Text="{x:Bind Bookingg.company.Name,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="30"  Text="{x:Bind Bookingg.Company.Name,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
-                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.Address,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.Address,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
-                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.Mail,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.Mail,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
-                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.PhoneNumber,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.PhoneNumber,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
-                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.company.OpeningHours,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.OpeningHours,Mode=OneWay}" TextWrapping="Wrap"></TextBlock >
 
-                <Image Width="200" Source="{x:Bind Bookingg.company.Picture,Mode=OneWay }"></Image>
+                <Image Width="200" Source="{x:Bind Bookingg.Company.Picture,Mode=OneWay }"></Image>
             </StackPanel>
 
 
@@ -82,11 +82,21 @@
             </Grid.ColumnDefinitions>
             <Button x:Name="Book_Copy" Foreground="White" Content="Registrera" FontSize="25" CornerRadius="5"  Background="Green" Height="70" Width="165" Click="Registrera_Click" Margin="28,0,0,0" />
             <Button x:Name="Cancel_Copy" Content="" FontSize="25" CornerRadius="5"  Background="Green" Height="70" Width="165" Grid.Column="1" Margin="50,0,0,0" />
-            <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" />
-            <Button x:Name="Book_Copy2" Content="Tillbaka" Foreground="White" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Click ="GoBackButton_Click" Grid.Column="3" HorizontalAlignment="Center" />
+            <Button x:Name="Book_Copy1" Foreground="White" Content="Logga ut" FontSize="25" CornerRadius="5"  Background="#1cb3bc" Height="70" Width="165" Grid.Column="2" Margin="48,0,0,0" Click="Logout_Click"/>
         </Grid>
-        <TextBlock  x:Name="LoginUserPersonalIdentityNumberTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="131,16,0,0" Grid.Row="1" Text="{x:Bind loginViewModel.user.PersonalIdentityNumber}" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="151"/>
-        <TextBlock  x:Name="LoginUserNameTextBlock" Grid.Column="1" HorizontalAlignment="Left" Margin="131,70,0,0" Grid.Row="1" Text="{x:Bind loginViewModel.user.Name}" TextWrapping="Wrap" VerticalAlignment="Top" Height="41" Width="151"/>
+        <ListView x:Name="SignedInPersonListView" ItemsSource="{x:Bind user.PersonalIdentityNumber}" Grid.Column="1" Margin="189,15,0,0" Grid.RowSpan="2">
+       
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="data:User">
+                    <StackPanel>
 
+                        <TextBlock x:Name="SignedInPersonsNameTextBlock" Text="{x:Bind PersonalIdentityNumber}" FontSize="20"/>
+                        <TextBlock x:Name="SignedInPersonIdentityNumberTextBlock" Text="{x:Bind Name}" FontSize="20"/>
+
+                    </StackPanel>
+               
+                </DataTemplate>
+        </ListView.ItemTemplate>
+            </ListView>
     </Grid>
 </Page>

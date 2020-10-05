@@ -1,4 +1,7 @@
-﻿using SwedishCareAb.Models;
+﻿using CommonServiceLocator;
+using GalaSoft.MvvmLight.Ioc;
+using GalaSoft.MvvmLight.Views;
+using SwedishCareAb.Models;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -35,10 +38,20 @@ namespace SwedishCareAb
             get { return _loggedInPerson; }
             set { _loggedInPerson = value; }
         }
+        public const string MainPage = "MainPage";
         public App()
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+
+            ServiceLocator.SetLocatorProvider(() => SimpleIoc.Default);
+
+            var nav = new NavigationService();
+            nav.Configure(MainPage, typeof(MainPage));
+            SimpleIoc.Default.Register<INavigationService>(() => nav);
+
+
         }
 
         /// <summary>

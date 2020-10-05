@@ -14,7 +14,7 @@ namespace SwedishCareAb.Models
         public int ID { get; set; }
         public DateTime Date { get; set; }
         public string Description { get; set; }
-        public Company company { get; set; }
+        public Company Company { get; set; }
 
         private int _status { get; set; }
         public int Status
@@ -27,8 +27,6 @@ namespace SwedishCareAb.Models
                 NotifyPropertyChanged("Status");
                 NotifyPropertyChanged("GetStatusText");
                 NotifyPropertyChanged("ShowPicture");
-
-
 
             }
         }
@@ -65,7 +63,17 @@ namespace SwedishCareAb.Models
         {
             get
             {
-                if (Status > 10) return Visibility.Visible; else return Visibility.Collapsed;
+                if (Status > 10)
+                {
+                    return Visibility.Visible;
+                }
+            
+                else
+                {
+                    return Visibility.Collapsed;
+                }
+                    
+                
             }
         }
         public string _picture { get; set; }
@@ -83,45 +91,18 @@ namespace SwedishCareAb.Models
 
             }
         }
-        public string GetBoked
-        {
-
-            get
-            {
-                switch (Status)
-                {
-                    case 10:
-                        return "";
-                   
-                    default:
-                        return "Assets/ckeck.png";
-                }
-
-                //if (Status == 10)
-                //{
-                //      Picture = "";
-                //}
-                //else
-                //{
-                //     Picture = "Assets/ckeck.png";
-                //}
-
-                //     return "";
-
-            }
-
-        }
+       
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Booking(int id, DateTime date, string description, int status, string picture, Company comp)
+        public Booking(int id, DateTime date, string description, int status, string picture, Company company)
         {
             ID = id;
             Description = description;
             Date = date;
             Status = status;
             Picture = picture;
-            company = comp;// new Company("Fålktandvården Skåne ", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
+            Company = company;// new Company("Fålktandvården Skåne ", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
         }
         private void NotifyPropertyChanged(string caller = "")
         {

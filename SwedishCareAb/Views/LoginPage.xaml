@@ -25,7 +25,7 @@
                       x:Name="PersonalIdentityNumberTextBlock"
                       Text="{x:Bind loginViewModel.UserPersonalIdentityNumber , Mode=TwoWay}"
                 
-                     PlaceholderText="personnummer" 
+                     PlaceholderText="Personnummer" 
                      Height="44" 
                 CornerRadius="5"
                      Margin="0,150,0,0" 
@@ -36,7 +36,7 @@
                         Content="Logga in"
                         Background="#1cb3bc"
                         CornerRadius="5"
-                        Click="Button_Click"
+                        Command="{x:Bind loginViewModel.LoginBtn}"
                         Foreground="White"
                         HorizontalAlignment="Center" 
                         Width="145" 
