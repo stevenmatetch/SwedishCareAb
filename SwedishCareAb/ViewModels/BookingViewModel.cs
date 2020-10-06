@@ -6,6 +6,7 @@ using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using Windows.UI.Xaml.Media;
 
 namespace SwedishCareAb.ViewModels
 {
@@ -29,6 +30,18 @@ namespace SwedishCareAb.ViewModels
             bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 70, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
             bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 10, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
             bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 30, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 40, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 50, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 60, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 70, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 10, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 30, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 40, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 50, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 60, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 70, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 10, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
+            bookings.Add(new Booking(3, DateTime.Now, "Tandvård", 30, new Company("Stevens Tandvård", "Hemmavid 1 C 223 61 Värnhem", "046-211 80 ", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "/Assets/folktandVården.gif")));
         }
         internal void ChangeStatus( Booking booking)
         {
@@ -37,23 +50,7 @@ namespace SwedishCareAb.ViewModels
             booking.Statuss = 20;
           
         }
-       
 
-
-
-
-        //public static bool CheckStatus( Booking booking)
-        //{
-        //    if (booking.Status == 10)
-        //    {
-        //        CheckStatus = 
-
-        //    }
-
-
-
-
-        //}
 
 
     }

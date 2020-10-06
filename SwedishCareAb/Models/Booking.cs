@@ -2,22 +2,30 @@
 using System.Collections.Generic;
 using System.Collections.Specialized;
 using System.ComponentModel;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Windows.UI.Text;
 using Windows.UI.Xaml;
+using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media;
+
 
 namespace SwedishCareAb.Models
 {
     public class Booking : INotifyPropertyChanged
     {
         public int ID { get; set; }
-        public DateTime Date { get; set; }
+        public DateTimeOffset Date { get; set; }
         public string Description { get; set; }
         public Company Company { get; set; }
 
         private int _status { get; set; }
+        public Booking()
+        {
+
+        }
         public int Status
         {
             get { return _status; }
@@ -53,28 +61,30 @@ namespace SwedishCareAb.Models
                     case 10:
                         return "Bokad";
                     case 20:
-                        return "Incheckad";
+                        return "Ankomstregistrerad";
                     case 23:
-                        return "Incheckad";
+                        return "Ankomstregistrerad";
                     case 26:
-                        return "Överlämnad";
+                        return "Ankomstregistrerad";
                     case 30:
-                        return "Behandlad";
+                        return "Ankomstregistrerad";
                     case 40:
-                        return "Utebliven";
+                        return "Kontakta reception";
                     case 50:
-                        return "Sent återbud";
+                        return "Kontakta reception";
                     case 60:
-                        return "Avbokad";
+                        return "Kontakta reception";
                     case 70:
-                        return "Preliminär";
+                        return "Kontakta reception";
                     default:
                         return "";
                 }
 
             }
 
+
         }
+       
         public Visibility ShowPicture
         {
             get
@@ -100,22 +110,52 @@ namespace SwedishCareAb.Models
             }
            
         }
-    
+     
 
+        public string Foreground
+        {
+           
+            get
+            {
 
-      
+                if (Status > 40)
+                {
+                    return "#808080";
+                }
+                else
+                {
+                    return "#000000";
+                }
+
+          
+            }
+        }
+
+        public bool EnableRegistrera
+        {
+            get
+            {
+                if (Status == 10)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+        }
        
-
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Booking(int id, DateTime date, string description, int status, Company company)
+        public Booking(int id, DateTimeOffset date, string description, int status, Company company)
         {
             ID = id;
             Description = description;
             Date = date;
             Status = status;
          
-            Company = company;// new Company("Fålktandvården Skåne ", "Östra Vallgatan 35 C 223 61 Lund", "046-211 80 92", "klinik@kantand.se", "Mån-Tors 7.30-17.00\nFre 7.30 - 13.00 \nAndra tider enligt överenskommelse", "Assets/folktandVården.gif");
+            Company = company;
         }
         private void NotifyPropertyChanged(string caller = "")
         {
@@ -125,11 +165,12 @@ namespace SwedishCareAb.Models
             }
 
         }
+ 
 
         public string summary
 
         {
-            get { return Date + "    " + Description + "    " ; }
+            get { return Date.ToString("yyyy-MM-dd    HH:mm:ss") + "    " + Description; }
         }
     }
 }

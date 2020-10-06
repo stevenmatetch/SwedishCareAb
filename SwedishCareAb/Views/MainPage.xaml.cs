@@ -30,7 +30,9 @@ namespace SwedishCareAb
         private LoginViewModel loginViewModel;
         public User user { get; set; }
         public MainPageViewModel mainPageViewModel { get; set; }
-      
+        public Booking booking { get; set; }
+
+
 
         //private Booking _selectedBooking { get; set; }
 
@@ -64,7 +66,24 @@ namespace SwedishCareAb
 
 
         }
+        //public Brush Foreground
+        //{
 
+        //    get
+        //    {
+
+        //        if (booking.Status > 40)
+        //        {
+        //           BookingListView.Template.
+        //        }
+                    
+
+        //            //TextBlock.ForegroundProperty = new SolidColorBrush(Color.White);
+
+        //            //var myTextblock = (TextBlock)this.Foreground
+        //            //    return   /*textBlock.Foreground = new System.Windows.Media.SolidColorBrush(Colors.Navy);*/
+        //    }
+        //}
 
         public void GetBooking(Booking booking)
         {
@@ -91,7 +110,7 @@ namespace SwedishCareAb
             loginViewModel = new LoginViewModel();
             mainPageViewModel = new MainPageViewModel();
             user = App.LoggedInUser;
-            
+            booking = new Booking();
             //companyViewModel = new CompanyViewModel();
         }
 
@@ -117,13 +136,7 @@ namespace SwedishCareAb
 
         private void BookingListView_ItemClick(object sender, ItemClickEventArgs e)
         {
-            //var select = BookingListView.SelectedItems;
-            //foreach (Booking Booking in select)
-            //{
-
-            //    bookingViewModel.ChangeStatus(Booking);
-
-            //}
+           
         }
 
         private void BookingListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
