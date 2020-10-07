@@ -65,6 +65,7 @@ namespace SwedishCareAb
             }
 
 
+
         }
         //public Brush Foreground
         //{
