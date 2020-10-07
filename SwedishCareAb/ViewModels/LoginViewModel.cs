@@ -2,6 +2,7 @@
 using CommonServiceLocator;
 using GalaSoft.MvvmLight.Command;
 using GalaSoft.MvvmLight.Views;
+using SwedishCareAb.Data;
 using SwedishCareAb.Models;
 using System;
 using System.Collections.Generic;
@@ -25,59 +26,74 @@ namespace SwedishCareAb.ViewModels
             set => _UserPersonalIdentityNumber = value;
         }
         public ICommand LoginBtn { get; set; }
+        public TestServer testServer;
         public LoginViewModel()
         {
-            LoginBtn = new RelayCommand(Login);
+            LoginBtn = new RelayCommand(LoginAsync);
             userViewModel = new UserViewModel();
+            testServer = new TestServer();
            
         }
-       internal void Login()
+       private async void LoginAsync()
        {
 
-            List<User> users = new List<User>();
-            users.Add(new User(1, "123", "Steven Komi Matetcho"));
-            users.Add(new User(2, "1234", "Daniel Fridhed"));
-            users.Add(new User(3, "567", "Peter 'Drutten' Svensson"));
+            //List<User> users = new List<User>();
+            //users.Add(new User(1, "123", "Steven Komi Matetcho"));
+            //users.Add(new User(2, "1234", "Daniel Fridhed"));
+            //users.Add(new User(3, "567", "Peter 'Drutten' Svensson"));
 
             if (!string.IsNullOrEmpty(UserPersonalIdentityNumber))
             {
-                //    User user = new User(1, "123", "Steven Komi Matetcho");
-
-                //User user = users.FirstOrDefault(x => x.PersonalIdentityNumber == UserPersonalIdentityNumber);
 
 
-                User user = null;
-                foreach (var u in users)
+                Data.TestServer.ClientResponse result = await Data.TestServer.GetBooking(UserPersonalIdentityNumber);
+                //var user = await testServer.GetBooking(UserPersonalIdentityNumber);
+
+                if (result != null) App.LoggedInUser = result.user; else App.LoggedInUser = null;
+
+                if (App.LoggedInUser != null)
                 {
-                    if (u.PersonalIdentityNumber == UserPersonalIdentityNumber)
-                    {
-                        user = u;
-                        break;
-                    }
-                }
 
-                if (user!=null)
-                {
+                    App.LoggedInUserBookings = result.bookings;
 
                     var nav = ServiceLocator.Current.GetInstance<INavigationService>();
-                    App.LoggedInUser = user;
 
                     nav.NavigateTo(App.MainPage);
 
                 }
-                else 
+                else
                 {
                     ContentDialog1 c = new ContentDialog1();
-                    _= c.ShowAsync();
+                    _ = c.ShowAsync();
                     //var dialog = new ContentDialog1();
                     //var result = dialog.ShowAsync();
                 }
 
 
 
+
+
+
+                //    User user = new User(1, "123", "Steven Komi Matetcho");
+
+                //User user = users.FirstOrDefault(x => x.PersonalIdentityNumber == UserPersonalIdentityNumber);
+
+
+                //User user = null;
+                //foreach (var u in users)
+                //{
+                //    if (u.PersonalIdentityNumber == UserPersonalIdentityNumber)
+                //    {
+                //        user = u;
+                //        break;
+                //    }
+                //}
+
+
+
             }
-                
-             
+
+
         }
     }
 }

@@ -38,6 +38,13 @@ namespace SwedishCareAb
             get { return _loggedInPerson; }
             set { _loggedInPerson = value; }
         }
+        public static List<Booking> LoggedInUserBookings
+        {
+            get;set;
+        }
+
+
+
         public const string MainPage = "MainPage";
         public App()
         {

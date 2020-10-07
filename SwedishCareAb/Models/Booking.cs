@@ -17,7 +17,7 @@ namespace SwedishCareAb.Models
     public class Booking : INotifyPropertyChanged
     {
         public int ID { get; set; }
-        public DateTimeOffset Date { get; set; }
+        public DateTime Date { get; set; }
         public string Description { get; set; }
         public Company Company { get; set; }
 
@@ -148,7 +148,7 @@ namespace SwedishCareAb.Models
        
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public Booking(int id, DateTimeOffset date, string description, int status, Company company)
+        public Booking(int id, DateTime date, string description, int status, Company company)
         {
             ID = id;
             Description = description;

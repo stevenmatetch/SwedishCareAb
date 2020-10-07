@@ -31,6 +31,7 @@ namespace SwedishCareAb.Models
 
         }
 
+        public Company() { }
       
     }
 }

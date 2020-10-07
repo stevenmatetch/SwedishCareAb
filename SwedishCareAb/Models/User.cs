@@ -12,9 +12,9 @@ namespace SwedishCareAb.Models
        public string PersonalIdentityNumber { get; set; }
        public string Name { get; set; }
        public int FirstName  { get; set; }
-        public string Address { get; set; }
-        public string Mail { get; set; }
-        public string PhoneNumber { get; set; }
+       public string Address { get; set; }
+       public string Mail { get; set; }
+       public string PhoneNumber { get; set; }
 
         public User( int id, string personalIdentityNumber, string name)
         { 
