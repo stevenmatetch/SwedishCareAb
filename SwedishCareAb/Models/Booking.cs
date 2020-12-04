@@ -20,7 +20,7 @@ namespace SwedishCareAb.Models
         public DateTime Date { get; set; }
         public string Description { get; set; }
         public Company Company { get; set; }
-
+      
         private int _status { get; set; }
         public Booking()
         {
@@ -99,7 +99,7 @@ namespace SwedishCareAb.Models
                 }
 
 
-                else if (Status > 40)
+                else if (Status >= 40)
                 {
                     return Visibility.Collapsed;
                 }
@@ -118,7 +118,7 @@ namespace SwedishCareAb.Models
             get
             {
 
-                if (Status > 40)
+                if (Status >= 40)
                 {
                     return "#808080";
                 }
@@ -170,7 +170,7 @@ namespace SwedishCareAb.Models
         public string summary
 
         {
-            get { return Date.ToString("yyyy-MM-dd    HH:mm:ss") + "    " + Description; }
+            get { return Date.ToString("yyyy-MM-dd  HH:mm:ss") + "    " + Description; }
         }
     }
 }

@@ -29,14 +29,14 @@
 
         <Grid x:Name="SideGrid"   Width="336" Height="538" HorizontalAlignment="Left" VerticalAlignment="Top"  Margin="21,28,0,0" Grid.Row="2" Grid.Column="1">
 
-            <StackPanel HorizontalAlignment="Left" Margin="4,0,0,10" RenderTransformOrigin="0.5,0.5" Width="332">
+            <StackPanel HorizontalAlignment="Left" Margin="0,0,0,10" RenderTransformOrigin="0.5,0.5" Width="332">
                 <StackPanel.RenderTransform>
                     <CompositeTransform ScaleX="1"/>
                 </StackPanel.RenderTransform>
 
                 <!--<TextBlock FontSize="30" Text="{x:Bind Bookingg.summary,Mode=OneWay}" TextWrapping="Wrap" Height="524" ></TextBlock >-->
 
-                <TextBlock FontSize="30"  Text="{x:Bind Bookingg.Company.Name,Mode=OneWay}"   FontWeight="Bold"  TextWrapping="Wrap"></TextBlock >
+                <TextBlock FontSize="30"  Text="{x:Bind Bookingg.Company.Name,Mode=OneWay}"   FontWeight="Bold"  TextWrapping="Wrap" Height="32"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
                 <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.Address,Mode=OneWay}"   FontWeight="SemiBold"  TextWrapping="Wrap"></TextBlock >
                 <TextBlock  Text =""   FontSize="10" Foreground="Black"/>
@@ -47,13 +47,13 @@
                 <TextBlock FontSize="18"  Text="{x:Bind Bookingg.Company.OpeningHours,Mode=OneWay}"  FontWeight="SemiBold"  TextWrapping="Wrap"></TextBlock >
 
                 <Image Width="200" Source="{x:Bind Bookingg.Company.Picture,Mode=OneWay }"></Image>
+                <!--<Image Source="/Assets/nocompany.png" />-->
+
             </StackPanel>
 
-
-
         </Grid>
-        <Grid Margin="63,28,64,33" CornerRadius="5" BorderBrush="Gray" BorderThickness="2" Grid.Row="2" Grid.RowSpan="2"  >
-            <ListView x:Name="BookingListView" ItemClick="BookingListView_ItemClick" IsItemClickEnabled="True" SelectedValue="{Binding SelectedBooking, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="10,22,12,14" SelectionChanged="BookingListView_SelectionChanged" >
+        <Grid Margin="63,28,64,21" CornerRadius="5" BorderBrush="Gray" BorderThickness="2" Grid.Row="2" Grid.RowSpan="2"  >
+            <ListView x:Name="BookingListView" ItemClick="BookingListView_ItemClick" IsItemClickEnabled="True" SelectedValue="{Binding SelectedBooking, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"  ItemsSource="{x:Bind bookingViewModel.bookings}" Margin="0,0,2,0" SelectionChanged="BookingListView_SelectionChanged" Height="776" VerticalAlignment="Center" >
                 <ListView.ItemTemplate>
                     <DataTemplate x:DataType="data:Booking" >
 
@@ -85,7 +85,7 @@
 
         </Grid>
         <Image HorizontalAlignment="Left" Height="78" Source="/Assets/login.png" Margin="279,16,0,0" Grid.Row="1" VerticalAlignment="Top" Width="79" Grid.Column="1"/>
-        <Grid Grid.Column="1" Grid.Row="3" Margin="0,10,0,16">
+        <Grid Grid.Column="1" Grid.Row="3" Margin="0,16,0,10">
 
             <Button Height="76" Foreground="White" Content="Registrera" Background="Green" FontWeight="Bold" FontSize="25" CornerRadius="5"   RenderTransformOrigin="0.5,0.5" Width="146" Margin="20,91,0,0" VerticalAlignment="Top" Click="Registrera_Click" IsEnabled="{x:Bind Bookingg.EnableRegistrera, Mode=OneWay}"/>
             <Button Height="76" FontSize="25" Background="#1cb3bc" CornerRadius="5" FontWeight="Bold"  Content="Logga ut" Foreground="White" RenderTransformOrigin="0.5,0.5" Width="146" Margin="236,91,0,0" VerticalAlignment="Top" Click="Logout_Click"/>

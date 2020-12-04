@@ -1,4 +1,5 @@
-﻿using SwedishCareAb.Models;
+﻿
+using SwedishCareAb.Models;
 using SwedishCareAb.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -31,9 +32,8 @@ namespace SwedishCareAb
         public User user { get; set; }
         public MainPageViewModel mainPageViewModel { get; set; }
         public Booking booking { get; set; }
-
-
-
+   
+      
         //private Booking _selectedBooking { get; set; }
 
         //public Booking SelectedBooking
@@ -50,6 +50,8 @@ namespace SwedishCareAb
 
 
         //}
+
+
         private Booking BOOKING { get; set; }
 
         public Booking Bookingg
@@ -67,24 +69,7 @@ namespace SwedishCareAb
 
 
         }
-        //public Brush Foreground
-        //{
-
-        //    get
-        //    {
-
-        //        if (booking.Status > 40)
-        //        {
-        //           BookingListView.Template.
-        //        }
-                    
-
-        //            //TextBlock.ForegroundProperty = new SolidColorBrush(Color.White);
-
-        //            //var myTextblock = (TextBlock)this.Foreground
-        //            //    return   /*textBlock.Foreground = new System.Windows.Media.SolidColorBrush(Colors.Navy);*/
-        //    }
-        //}
+    
 
         public void GetBooking(Booking booking)
         {
@@ -103,7 +88,7 @@ namespace SwedishCareAb
 
         public event PropertyChangedEventHandler PropertyChanged;
 
-        // private CompanyViewModel companyViewModel;
+       
         public MainPage()
         {
             this.InitializeComponent();
@@ -112,22 +97,22 @@ namespace SwedishCareAb
             mainPageViewModel = new MainPageViewModel();
             user = App.LoggedInUser;
             booking = new Booking();
-            //companyViewModel = new CompanyViewModel();
+         
         }
 
        
-        private void Registrera_Click(object sender, RoutedEventArgs e)
+        private async void Registrera_Click(object sender, RoutedEventArgs e)
         {
-
-            
 
             var selected = BookingListView.SelectedItems;
 
             foreach (Booking booking in selected)
             {
-                bookingViewModel.ChangeStatus(booking);
-              
 
+
+                bool result = await Data.TestServer.Register(booking.ID);
+
+                if (result == true) bookingViewModel.ChangeStatus(booking);
 
             }
 
@@ -146,12 +131,11 @@ namespace SwedishCareAb
             if (select != null)
             {
                 GetBooking(select as Booking);
+              
             }
             
 
         }
-
-       
 
         private void Logout_Click(object sender, RoutedEventArgs e)
         {

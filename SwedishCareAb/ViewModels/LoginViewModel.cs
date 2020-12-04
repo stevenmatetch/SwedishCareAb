@@ -17,7 +17,7 @@ namespace SwedishCareAb.ViewModels
 {
     public class LoginViewModel
     {
-        public UserViewModel userViewModel;
+   
         public string _UserPersonalIdentityNumber { get; set; }
   
         public string UserPersonalIdentityNumber
@@ -30,7 +30,7 @@ namespace SwedishCareAb.ViewModels
         public LoginViewModel()
         {
             LoginBtn = new RelayCommand(LoginAsync);
-            userViewModel = new UserViewModel();
+
             testServer = new TestServer();
            
         }
@@ -68,10 +68,6 @@ namespace SwedishCareAb.ViewModels
                     //var dialog = new ContentDialog1();
                     //var result = dialog.ShowAsync();
                 }
-
-
-
-
 
 
                 //    User user = new User(1, "123", "Steven Komi Matetcho");

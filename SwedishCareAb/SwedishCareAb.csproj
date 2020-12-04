@@ -129,7 +129,7 @@
     </Compile>
     <Compile Include="Data\GetBookingResponse.cs" />
     <Compile Include="Data\TestServer.cs" />
-    <Compile Include="Models\AutoLogOffHelper.cs" />
+    <Compile Include="Models\ClientResponse.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
     <Compile Include="Views\AlertMessage.xaml.cs">
       <DependentUpon>AlertMessage.xaml</DependentUpon>
@@ -142,14 +142,11 @@
     </Compile>
     <Compile Include="Models\Booking.cs" />
     <Compile Include="Models\Company.cs" />
-    <Compile Include="Models\Dentist.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\BookingViewModel.cs" />
     <Compile Include="ViewModels\CompanyViewModel.cs" />
-    <Compile Include="ViewModels\DentistViewModel.cs" />
     <Compile Include="ViewModels\LoginViewModel.cs" />
-    <Compile Include="ViewModels\UserViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -160,6 +157,7 @@
     <Content Include="Assets\ckeck.png" />
     <Content Include="Assets\folktandVården.gif" />
     <Content Include="Assets\login.png" />
+    <Content Include="Assets\nocompany.png" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

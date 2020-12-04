@@ -17,9 +17,23 @@ namespace SwedishCareAb.Models
         public string Mail { get; set; }
       
         public string OpeningHours { get; set; }
-        public string Picture { get; set; }
+        private string _picture = "/Assets/nocompany.png";
+        public string Picture
+        {
+            get
+            {
+                if (_picture == "") return "/Assets/nocompany.png";
+                return _picture;
+            }
+            set
+            {
+                _picture = value;
+            }
+        }
+
 
    
+
         public Company(string name, string address, string phoneNumber, string mail, string openingHours, string picture)
         {
             Name = name;
